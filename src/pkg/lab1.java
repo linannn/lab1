@@ -93,8 +93,6 @@ public class lab1{
 		System.out.println("Check bridge word: 3 word1 word2");
 		System.out.println("Create new text with bridge word: 4 string");
 		System.out.println("Calculate the shortest path in two words: 5 word1 word2");
-		//System.out.println("Show all the shortest path in two words: 53 word1 word2");
-		//System.out.println("Show all the single source shortest path of one word: 54 word");
 		System.out.println("Random walk: 6");
 		String order, fileName, word1, word2, inputText;
 		Scanner scanner = new Scanner(System.in);
