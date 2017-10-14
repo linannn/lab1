@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Vector;
 import java.util.Scanner;
 class Graph{
+	//图类
     private Vector<String> nodes = new Vector<String>();
     private Vector<String> source = new Vector<String>();
     private boolean isGraph;
@@ -16,7 +17,7 @@ class Graph{
         this.nodes = new Vector<String>();
         this.source = new Vector<String>();
     }
-    Graph createDirectedGraph(String fileName) {
+    Graph createDirectedGraph(String fileName) {//新建图
         try {
             nodes.clear(); source.clear();
             FileReader fr = new FileReader(new File(fileName));
@@ -70,7 +71,7 @@ class Graph{
     boolean isGraph(){
         return  isGraph;
     }
-    int findNode(String str) {
+    int findNode(String str) {//查找相应节点
         str.toLowerCase();
         for (int i = 0; i < this.nodes.size(); i++) {
             if (this.nodes.elementAt(i).equals(str))
