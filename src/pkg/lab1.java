@@ -53,7 +53,7 @@ class Graph{
             newIndex = this.findNode(this.source.elementAt(i));
             matrix[preIndex][newIndex]++;
             preIndex = newIndex;
-        }
+        }//在创建图的同时就生成桥接词的信息
         bridge = new int [numb][numb][numb];
         for(int i = 0; i < numb; i ++){
             for(int j = 0; j < numb; j ++){
@@ -343,7 +343,7 @@ public class lab1{
         File f = new File(fp);
         return f.isDirectory();
     }
-    private static String writeScript(Graph gra, String name){
+    private static String writeScript(Graph gra, String name){//根据图的信息生成脚本并生成图片，返回图片路径
         File script = new File(fPath+"\\",name + ".txt");
         FileOutputStream scriptStream = null;
         try {
@@ -370,7 +370,7 @@ public class lab1{
         }
         return fPath+"\\"+name+".jpg";
     }
-    private static String writeScript(Graph gra, int pre[], int start, int end){
+    private static String writeScript(Graph gra, int pre[], int start, int end){//重载，有最短路径的情况
         String name = "pic" + id.toString();
         id++;
         File script = new File(fPath, name+".txt");
@@ -408,7 +408,7 @@ public class lab1{
         }
         return fPath + "\\" + name + ".jpg";
     }
-    private static void drawPicture(String pathName){
+    private static void drawPicture(String pathName){//调用系统的图片查看器显示图片
         try {
             Runtime.getRuntime().exec("rundll32 c:\\Windows\\System32\\shimgvw.dll,ImageView_Fullscreen "+pathName);
         } catch (IOException e) {
