@@ -54,7 +54,9 @@ class Graph{
             newIndex = this.findNode(this.source.elementAt(i));
             matrix[preIndex][newIndex]++;
             preIndex = newIndex;
+
         }//在生成图的同时也将桥接词同时查询并存储在相应的数组中
+
         bridge = new int [numb][numb][numb];
         for(int i = 0; i < numb; i ++){
             for(int j = 0; j < numb; j ++){
@@ -344,7 +346,8 @@ public class lab1{
         File f = new File(fp);
         return f.isDirectory();
     }
-    private static String writeScript(Graph gra, String name){//根据图的相关信息生成脚本，并调用cmd生成图片
+    private static String writeScript(Graph gra, String name){//根据图的信息生成脚本并调用cmd生成图片，返回图片路径
+
         File script = new File(fPath+"\\",name + ".txt");
         FileOutputStream scriptStream = null;
         try {
@@ -409,7 +412,7 @@ public class lab1{
         }
         return fPath + "\\" + name + ".jpg";
     }
-    private static void drawPicture(String pathName){//调用系统的图片查看器显示生成的图片
+    private static void drawPicture(String pathName){//调用系统的图片查看器显示图片
         try {
             Runtime.getRuntime().exec("rundll32 c:\\Windows\\System32\\shimgvw.dll,ImageView_Fullscreen "+pathName);
         } catch (IOException e) {
