@@ -11,7 +11,7 @@ class Graph{
     private Vector<String> nodes = new Vector<String>();
     private Vector<String> source = new Vector<String>();
     private boolean isGraph;
-    public int matrix[][], bridge[][][];
+    public int matrix[][], bridge[][][];//bridge：桥接词
     private boolean vis[];
     Graph() {
         this.nodes = new Vector<String>();
@@ -54,7 +54,7 @@ class Graph{
             newIndex = this.findNode(this.source.elementAt(i));
             matrix[preIndex][newIndex]++;
             preIndex = newIndex;
-        }
+        }//在生成图的同时也将桥接词同时查询并存储在相应的数组中
         bridge = new int [numb][numb][numb];
         for(int i = 0; i < numb; i ++){
             for(int j = 0; j < numb; j ++){
@@ -274,7 +274,7 @@ public class lab1{
 		int Graph[][] = new int [Z][Z];
 		int t, min = 0, numb = gra.matrix.length;
 		int sign[] = new int[numb], distance[] = new int[numb], pre[] = new int [numb];
-		for(int i = 0; i < numb; i++) 
+		for(int i = 0; i < numb; i++) //Dij算法
 			for(int j = 0; j<numb;j++) 
 				Graph[i][j] = (gra.matrix[i][j] == 0)? Z:gra.matrix[i][j];
 		for (int i = 0; i < numb; i++) {
