@@ -18,6 +18,7 @@ class Graph{
         this.source = new Vector<String>();
     }
     Graph createDirectedGraph(String fileName) {//新建图
+
         try {
             nodes.clear(); source.clear();
             FileReader fr = new FileReader(new File(fileName));
@@ -54,7 +55,6 @@ class Graph{
             newIndex = this.findNode(this.source.elementAt(i));
             matrix[preIndex][newIndex]++;
             preIndex = newIndex;
-
         }//在生成图的同时也将桥接词同时查询并存储在相应的数组中
 
         bridge = new int [numb][numb][numb];
@@ -179,6 +179,7 @@ public class lab1{
                     scanner.nextLine();
 					break;
 				case "6":
+
                     if(!G.isGraph()){
                         System.out.println("There is not a Graph, please input the path" +
                                 " of the text to create the Graph with order \"1 path\"");
@@ -263,6 +264,7 @@ public class lab1{
 		word1 = word1.toLowerCase();
 		word2 = word2.toLowerCase();
 		int index1 = gra.findNode(word1), index2 = gra.findNode(word2);
+
         if (index1 == -1 && index2 == -1) {
             return "No \"" + word1 + "\" and \"" + word2 + "\" in the Graph!";
         }
@@ -347,7 +349,6 @@ public class lab1{
         return f.isDirectory();
     }
     private static String writeScript(Graph gra, String name){//根据图的信息生成脚本并调用cmd生成图片，返回图片路径
-
         File script = new File(fPath+"\\",name + ".txt");
         FileOutputStream scriptStream = null;
         try {
@@ -375,6 +376,7 @@ public class lab1{
         return fPath+"\\"+name+".jpg";
     }
     private static String writeScript(Graph gra, int pre[], int start, int end){//重载，包含最短路径的写脚本函数
+
         String name = "pic" + id.toString();
         id++;
         File script = new File(fPath, name+".txt");
